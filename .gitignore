@@ -1,0 +1,10 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# tooling cruft
+.gstack/
+*.log
+
+# generated issues land in the folder where /dispatch is run, not in the plugin repo
+techjays-ai-dispatch-issue-*.html

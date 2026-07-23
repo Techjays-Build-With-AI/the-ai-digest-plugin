@@ -1,0 +1,9 @@
+{
+  "name": "techjays-dispatch",
+  "description": "Generate the weekly Techjays AI Dispatch magazine issue from the Leads Sync meeting transcript. Any attendee can run /dispatch; the design is frozen so every issue is uniform.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Techjays AI Practice"
+  },
+  "keywords": ["newsletter", "digest", "google-calendar", "transcript", "techjays"]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "techjays",
+  "owner": {
+    "name": "Techjays AI Practice"
+  },
+  "metadata": {
+    "description": "Techjays internal Claude Code plugins.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "techjays-dispatch",
+      "source": "./plugins/techjays-dispatch",
+      "description": "Generate the weekly Techjays AI Dispatch magazine issue from the Leads Sync transcript."
+    }
+  ]
+}
