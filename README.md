@@ -29,14 +29,15 @@ connected yet.) Each person authorizes with their **own** Google account — the
 **2. Install the plugin.**
 
 ```
-/plugin marketplace add techjays/techjays-dispatch   # or the internal git URL / local path
-/plugin install techjays-dispatch
+/plugin marketplace add Techjays-Build-With-AI/the-ai-digest-plugin
+/plugin install techjays-dispatch@techjays
 ```
 
+The marketplace is named `techjays`, so the plugin installs as `techjays-dispatch@techjays`.
 Then restart Claude Code if prompted. `/dispatch` is now available anywhere.
 
 > Installing from a local clone instead:
-> `/plugin marketplace add /path/to/techjays-dispatch` then `/plugin install techjays-dispatch`.
+> `/plugin marketplace add /path/to/the-ai-digest-plugin` then `/plugin install techjays-dispatch@techjays`.
 
 ---
 
