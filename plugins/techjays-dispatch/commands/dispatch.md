@@ -39,16 +39,15 @@ If empty, target the most recent past occurrence of the meeting.
 
 ## Step 1 — Connect Google (per-user, one time per machine)
 The transcript lives on the runner's own Google Calendar, so each person authenticates with their own account.
-- Try to use the Google Calendar MCP tools. If the only tools available are `authenticate`/`complete_authentication`,
-  the connector is not yet authorized:
-  1. Call `mcp__claude_ai_Google_Calendar__authenticate`, show the user the returned Google authorization URL,
-     and ask them to approve it in their browser.
-  2. When they return with the `http://localhost:.../callback?...` URL, pass it to
-     `mcp__claude_ai_Google_Calendar__complete_authentication`.
-- Repeat the same flow for **Google Drive** (`mcp__claude_ai_Google_Drive__authenticate`). You need both:
-  Calendar to find the event, Drive to read the attached transcript.
-- If a connector is not installed at all (no `mcp__claude_ai_Google_Calendar__*` tools exist), tell the user to
-  enable the **Google Calendar** and **Google Drive** connectors once, then re-run — point them at the README.
+- Check whether the Google Calendar **read** tools are available (e.g. a list-events / search-events tool). If the
+  only Calendar tool present is `authenticate`, the connector is not yet authorized.
+- These are **claude.ai connectors**, so authorization happens through Claude Code's own UI, not a URL you relay.
+  Calling `authenticate` just returns that instruction. So ask the user to:
+  1. Run **`/mcp`**, choose **"claude.ai Google Calendar"**, and authenticate in the browser.
+  2. Do the same for **"claude.ai Google Drive"**.
+  Both are required: Calendar to find the event, Drive to read the attached transcript.
+- Then **wait for the user to confirm** they have authenticated, and continue. If a connector is not listed under
+  `/mcp` at all, ask them to add the **Google Calendar** and **Google Drive** connectors first (see the README).
 
 ## Step 2 — Find the meeting
 - Search the calendar for the event titled **"Techjays - Weekly Leads Sync"** (match loosely; it is recurring).
