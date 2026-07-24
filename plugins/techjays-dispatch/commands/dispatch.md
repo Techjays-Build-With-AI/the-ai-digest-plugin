@@ -35,6 +35,7 @@ If empty, target the most recent past occurrence of the meeting.
   - `${CLAUDE_PLUGIN_ROOT}/assets/style-contract.md` — the rulebook. Follow it exactly.
   - `${CLAUDE_PLUGIN_ROOT}/assets/template.html` — the frozen shell you will fill.
   - `${CLAUDE_PLUGIN_ROOT}/assets/example-issue-01.html` — the reference standard to match.
+  - `${CLAUDE_PLUGIN_ROOT}/assets/team.json` — the roster (name → role / ref) for attributing speakers.
 - If `$1` is a readable file path or a transcript URL, skip Steps 1-3, load that transcript, and go to Step 4.
 
 ## Step 1 — Connect Google (per-user, one time per machine)
@@ -78,6 +79,9 @@ The transcript lives on the runner's own Google Calendar, so each person authent
   `{{SECTIONS}}`, `{{COMPILED_FROM}}` (`Compiled from the <DD Mon YYYY> leads weekly sync`).
 - Obey the golden rules: hyphens never em-dashes; exact model names (Opus/Sonnet are both Claude - never
   "Claude vs Sonnet"); coral = problem/emphasis, teal = fix/forward; correct contrast on dark panels.
+- **Attribute speakers by role** (rule 15): on each person's first mention, introduce them with their
+  `team.json` ref (`Ashish, a staff AI engineer,`); put the formal title in cites and single-name stamps;
+  later mentions use the first name only. Flag any speaker missing from `team.json` in the Step 8 report.
 - Apply the **publication-safety rules** (`style-contract.md` rules 8-14) as you write, not after:
   - **Customers:** replace every customer / project / product name with `a customer` or the nature the transcript
     gives (`a coaching customer`). If a customer is referenced and its nature is NOT in the transcript, pause and

@@ -43,6 +43,7 @@ no matter who ran the command or which model generated it.
 12. **Keep internal evaluations and experiments.** Our own model / tool benchmarks, cost comparisons, and "what we tried this week" are the point of the digest - keep them, as long as they carry no personal information.
 13. **Verify third-party claims.** Any factual claim about an outside company or product (`X shipped Y`, `vendor raised limits`, `rolled out in the US`) must be verified with web research before it stays. If it checks out, keep it and cite the source (inline or in a `.quiet` note). If it cannot be verified, ask the user for a source; if none is given, drop the claim. Never publish an unverified third-party claim as fact.
 14. **Avoid internal gaps; keep tool capabilities.** Do not publish our own weaknesses, delivery slippage, roadmap, or insecure workarounds. Reframe such a story as the capability or the lesson (e.g. "drive a web tool with Chrome MCP") without exposing the gap or the workaround.
+15. **Attribute people by role, using `team.json`.** On a person's **first mention** in the issue, introduce them with their role: `<First>, <ref>,` - e.g. `Ashish, a staff AI engineer,` or `Dharma, our Chief AI Officer,`. Take `<ref>` from `assets/team.json` (resolve nicknames/first-names via its `aliases`). Later mentions in the same issue use the first name only. In pull-quote `<cite>` lines, append the **formal `role`** in Title Case: `- Ashish Ramaswamy, Staff AI Engineer`. In a single-person `.dept-stamp`, append the formal role too (`Filed 22.07 · Ragul Kachiappan, Lead AI Engineer`); leave multi-name stamps as short first-name chips. If a speaker is **not** in `team.json`, use their name without a role (do not invent one) and note it in the Step 8 report so the roster can be updated.
 
 ---
 
@@ -260,3 +261,4 @@ Diagrams are optional. Include one for the Cover Story and at most one or two mo
 - [ ] No internal gaps / weaknesses / roadmap / insecure workarounds. Tool capabilities kept.
 - [ ] Internal evaluations and experiments are present (that is the point) and carry no personal information.
 - [ ] Employee/speaker names kept and correctly attributed.
+- [ ] Every speaker's first mention carries their role from `team.json`; cites and single-name stamps carry the formal title; later mentions are first-name only. Any speaker missing from the roster is flagged in the report.
