@@ -5,9 +5,12 @@ allowed-tools:
   - Read
   - Write
   - Glob
+  - WebSearch
+  - WebFetch
   - Bash(ls:*)
   - Bash(open:*)
   - Bash(date:*)
+  - Bash(grep:*)
   - mcp__claude_ai_Google_Calendar__authenticate
   - mcp__claude_ai_Google_Calendar__complete_authentication
   - mcp__claude_ai_Google_Drive__authenticate
@@ -19,7 +22,9 @@ allowed-tools:
 You are producing the next issue of **The AI Dispatch**, Techjays' weekly Leads Sync digest.
 Anyone invited to the meeting can run this; your job is to make an issue that is indistinguishable
 in look and structure from the last one. Work through the steps in order. Do not skip the auth or the
-self-check. **Do not fabricate meeting content** — if you cannot get a real transcript, stop and say so.
+self-check. **Do not fabricate meeting content** - if you cannot get a real transcript, stop and say so.
+**Every issue must be safe to share beyond the room** - follow the publication-safety rules in
+`style-contract.md` (rules 8-14) as you write, and run the Step 7 safety review before you finish.
 
 Argument (`$1`, optional): a meeting date `YYYY-MM-DD`, OR a path/URL to a transcript to use directly.
 If empty, target the most recent past occurrence of the meeting.
@@ -72,15 +77,32 @@ The transcript lives on the runner's own Google Calendar, so each person authent
   `{{TEASER_ITEMS}}`, `{{DATELINE}}` (real filed date/host/counts), `{{EDITORS_HEADLINE}}` (different words from the
   cover line), `{{EDITORS_NOTE}}` (2 paragraphs), `{{BYLINE}}`, `{{CONTENTS}}` (numbers match the departments),
   `{{SECTIONS}}`, `{{COMPILED_FROM}}` (`Compiled from the <DD Mon YYYY> leads weekly sync`).
-- Obey the golden rules: hyphens never em-dashes; exact model names (Opus/Sonnet are both Claude — never
+- Obey the golden rules: hyphens never em-dashes; exact model names (Opus/Sonnet are both Claude - never
   "Claude vs Sonnet"); coral = problem/emphasis, teal = fix/forward; correct contrast on dark panels.
+- Apply the **publication-safety rules** (`style-contract.md` rules 8-14) as you write, not after:
+  - **Customers:** replace every customer / project / product name with `a customer` or the nature the transcript
+    gives (`a coaching customer`). If a customer is referenced and its nature is NOT in the transcript, pause and
+    ask the user what to call it before continuing.
+  - **Strip** PII and company-identifying details from customer stories; **drop** internal vendor relationships
+    and internal gaps / workarounds / roadmap; **keep** our internal evaluations and experiments.
+  - As you go, collect every **third-party factual claim** (about outside companies/products) into a list to
+    verify in Step 7. Do not assert any of them as fact yet.
 
-## Step 6 — Write and open
+## Step 6 — Write the file
 - Write the filled HTML to `techjays-ai-dispatch-issue-<NN>.html` in the output directory.
-- Run the self-check in `style-contract.md` §6 against your output. Fix anything that fails (in particular,
-  grep your file for `—` and remove any).
-- Open it: `open techjays-ai-dispatch-issue-<NN>.html`.
 
-## Step 7 — Report
-Tell the user: the issue number, the meeting date it was built from, the departments included, and the file path.
-Note anything you had to infer or leave out because the transcript was thin.
+## Step 7 — Safety review (required gate - the task is NOT done until this passes)
+1. **Verify third-party claims.** For each claim collected in Step 5, use `WebSearch` / `WebFetch` to confirm it.
+   - Verified -> keep it and cite the source (inline, or a `.quiet` note under the block).
+   - Not verifiable -> ask the user for a source. If they have none, remove the claim (and any block that was only that claim).
+2. **Run the full self-check** in `style-contract.md` §6 (Design + Publication safety). Concretely:
+   - `grep -n "—" techjays-ai-dispatch-issue-<NN>.html` -> must be empty; fix any.
+   - Re-scan for customer/project/product names, PII, company-identifying details, vendor-relationship
+     wording, and internal gaps/workarounds. Rewrite anything that fails, in place.
+3. If any customer's nature is still unknown, or a claim is still unresolved, **ask the user now** - do not ship around it.
+- Only once every box is satisfied, open it: `open techjays-ai-dispatch-issue-<NN>.html`.
+
+## Step 8 — Report
+Tell the user: the issue number, the meeting date it was built from, and the departments included, and the file path.
+Then a short **safety summary**: which customers were anonymized (and how), which third-party claims were verified
+(with sources) vs dropped, and anything you had to ask about or leave out.

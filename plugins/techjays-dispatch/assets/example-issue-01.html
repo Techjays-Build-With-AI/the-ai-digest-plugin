@@ -344,14 +344,14 @@
     <div class="contents">
       <span class="h">In this issue</span>
       <ul class="toc">
-        <li><span class="n">01</span><a href="#models">Model Watch<small>Fable vs Opus 4.8, Kimi savings, OpenAI credits</small></a></li>
+        <li><span class="n">01</span><a href="#models">Model Watch<small>Fable vs Opus 4.8, Kimi savings, vendor pricing</small></a></li>
         <li><span class="n">02</span><a href="#loop">Cover: The Two-Reviewer Problem<small>Loop engineering &amp; the definition of done</small></a></li>
         <li><span class="n">03</span><a href="#review">The Review Room<small>Why you shouldn't let a model grade its own homework</small></a></li>
         <li><span class="n">04</span><a href="#design">The Toolshed: Design<small>Stitch, Claude Design, UX skills, design systems</small></a></li>
         <li><span class="n">05</span><a href="#flow">Staying in Flow<small>Push notifications, Warp, parallel worktrees</small></a></li>
         <li><span class="n">06</span><a href="#xc">Big Idea: Experience Contracts<small>Binu's spec for how a screen should feel</small></a></li>
         <li><span class="n">07</span><a href="#horizon">On the Horizon<small>WebMCP &amp; the death of the site chatbot</small></a></li>
-        <li><span class="n">08</span><a href="#notes">Field Notes<small>Jetrix pain, API bottlenecks, knowledge recall</small></a></li>
+        <li><span class="n">08</span><a href="#notes">Field Notes<small>Driving web tools, agentic delivery, knowledge recall</small></a></li>
         <li><span class="n">09</span><a href="#actions">Action Board<small>Who owns what next week</small></a></li>
       </ul>
     </div>
@@ -387,8 +387,7 @@
         <div class="card coral" style="margin-top:20px">
           <div class="label">Vendor moves</div>
           <h5>Everyone's discounting</h5>
-          <p>Competition is showing up in the pricing. Providers are handing out credits and freebies to keep developers loyal - one lifted its usage limit by <b>50%</b>, reportedly feeling the heat from Kimi.</p>
-          <p>On the OpenAI partnership: we're now officially a partner, but the two-month company subscription access hasn't been switched on yet. Still waiting.</p>
+          <p>Competition is showing up in the pricing. Providers keep handing out credits and raising usage limits to keep developers loyal - the pressure from cheaper models like Kimi is visible across the board.</p>
         </div>
       </div>
     </div>
@@ -403,7 +402,7 @@
     <div class="g2 wide">
       <div class="art">
         <p class="drop">Ragul spent the last fortnight running full <b>loop engineering</b> on a real feature: take a big module, split it into phases, split each phase into tasks, and wire in review gates, pivot gates, TDD and a brainstorming pass so the whole thing runs semi-autonomously. He only steps in at the review points.</p>
-        <p>The feature: expanding the coach-facing chat so it can query <em>any</em> client data - health scores, effectiveness metrics, coaching-timeline insights - not just the vector store. Proper agentic chat. Five phases, ~7 tasks each, about a week of Claude time.</p>
+        <p>The feature: expanding a coaching customer's coach-facing chat so it can query <em>any</em> of their data - performance scores, effectiveness metrics, timeline insights - not just the vector store. Proper agentic chat. Five phases, ~7 tasks each, about a week of Claude time.</p>
         <p>Then he did something clever: he ran <b>two reviewers</b> on the same code - Opus (or Fable) reviewing, and Sonnet reviewing. And they saw completely different things.</p>
         <div class="tags">
           <span class="tag">loop-engineering</span><span class="tag">review-gates</span><span class="tag">TDD</span><span class="tag">agentic-chat</span>
@@ -506,7 +505,7 @@
       <div class="art">
         <div class="eyebrow">Discovery // Google Stitch</div>
         <h4>Design with no designer</h4>
-        <p>On the Echo POC with no designer on hand, Abu used <b>Google Stitch</b> (Pro) to generate the UI. It works Figma-style - describe the project, get editable screens and a live preview, then export three files: the screen capture, the design assets, and clean HTML. Edit by prompt or by hand.</p>
+        <p>On a recent POC with no designer on hand, Abu used <b>Google Stitch</b> (Pro) to generate the UI. It works Figma-style - describe the project, get editable screens and a live preview, then export three files: the screen capture, the design assets, and clean HTML. Edit by prompt or by hand.</p>
       </div>
       <div class="art">
         <div class="eyebrow">Native // Claude Design</div>
@@ -609,7 +608,7 @@
       <div class="art">
         <p class="drop">We already use <b>data contracts</b> for agent-to-agent communication. Binu's proposal: bring the same rigour to how a screen should <em>feel</em>. Call it an <b>experience contract</b> - a written spec, per feature or per product, of the user's expected behaviour and psychological reaction.</p>
         <p>It captures things we usually leave implicit: what's the ideal time-to-action? What's a good vs. bad experience for this step? Is there an emotional beat attached - a quick, quality recall that earns a little dopamine? What mental model is the user holding?</p>
-        <p>Feeding an agent that context changes what it builds. Binu's been using it on the retail product and it's already <em>simplifying</em> screens - helping decide what actually belongs, instead of dumping every feature we've built onto the page just because it exists.</p>
+        <p>Feeding an agent that context changes what it builds. Binu's been using it with one of our retail customers and it's already <em>simplifying</em> screens - helping decide what actually belongs, instead of dumping every feature onto the page just because it exists.</p>
         <div class="pull">&ldquo;The point where software meets the user - that interaction is the contract. Label how it should feel, then build features that honour it.&rdquo;<cite>- Binu Babu</cite></div>
         <p class="quiet">// Binu is packaging his experience-contract skill (an MD file) into a universal version to share with the group.</p>
       </div>
@@ -650,7 +649,7 @@
     <div class="g2 narrow">
       <div class="art">
         <p class="drop">Aravind flagged <b>WebMCP</b> as the thing to watch. Today we hand-build a chatbot into every product. Tomorrow, a browser-native assistant (think the &ldquo;ask Gemini&rdquo; layer in Chrome) connects directly to the MCP tools a site exposes - no bespoke chat widget required.</p>
-        <p>If that holds, the in-site chatbot becomes a technology of the past: you expose your MCP tools, and the browser's own chat interface talks to them. Redbus and Flipkart are reportedly already MCP-ready; Chrome has rolled WebMCP out in the US; Alibaba shipped something similar; and Claude for Chrome is the same idea from the other direction.</p>
+        <p>If that holds, the in-site chatbot becomes a technology of the past: you expose your MCP tools, and the browser's own chat interface talks to them. Browser-native assistants are already arriving from more than one direction - Claude for Chrome drives the browser today, and the major browser vendors are moving the same way.</p>
         <div class="verdict">Still experimental - <b>but worth designing for now.</b> The teams that expose clean MCP tools early won't need to rebuild chat later.</div>
       </div>
       <div class="art">
@@ -667,10 +666,10 @@
             </div>
           </div>
           <ul class="clean">
-            <li><b>Redbus / Flipkart</b> - MCP endpoints reportedly live</li>
-            <li><b>Chrome (US)</b> - WebMCP rolled out</li>
-            <li><b>Alibaba</b> - comparable browser assistant</li>
-            <li><b>Claude for Chrome</b> - MCP-controlled browsing, already usable</li>
+            <li><b>Browser assistants</b> - the assistant in the browser becomes the front door</li>
+            <li><b>WebMCP</b> - the emerging way a site exposes its tools to that assistant</li>
+            <li><b>Expose-first</b> - ship clean MCP tools and skip the bespoke chat widget</li>
+            <li><b>Claude for Chrome</b> - MCP-controlled browsing, usable today</li>
           </ul>
         </div>
       </div>
@@ -686,17 +685,17 @@
       </div>
       <div class="g3">
         <div class="art">
-          <div class="eyebrow">Tooling pain // Anju</div>
-          <h4>Jetrix can't bulk-edit</h4>
-          <p>Jetrix (our tracker) has no bulk upload and no way to reorder user stories - punishing when you're loading ~180 of them. Anju's workaround: grab the auth token from Chrome dev-tools and have Claude write straight into Jetrix. It worked, but it's not the way.</p>
-          <p><b>Rajesh's fix:</b> skip the token - use <b>Chrome MCP</b> and let Claude drive the site directly. If computer-use won't do it, Chrome MCP will.</p>
-          <p class="quiet">// Dharma: a real fix for the reordering problem is already coming - more in a follow-up.</p>
+          <div class="eyebrow">Capability // Anju</div>
+          <h4>Make Claude drive a stubborn web tool</h4>
+          <p>When a web tool has no bulk upload and no easy way to reorder records - punishing at ~180 of them - you don't have to script against it. Point Claude at the page with <b>Chrome MCP</b> and let it operate the UI directly.</p>
+          <p><b>Rajesh's tip:</b> reach for <b>Chrome MCP</b> first. If plain computer-use stalls, Chrome MCP gets it done.</p>
+          <p class="quiet">// No API, no problem - the browser is the integration surface.</p>
         </div>
         <div class="art">
           <div class="eyebrow">Delivery // Ravindran</div>
-          <h4>Front-end waits on the API</h4>
-          <p>On Endover, our front-end (built fast with Claude) keeps stalling for a week+ waiting on the partner team's APIs - reportedly just two backend devs. Dharma's note: with agentic dev, front-end now takes <em>more</em> time than back-end, so a lagging API usually means the tools aren't being fully leveraged.</p>
-          <p><b>Offer on the table:</b> we can audit their workflow and set up skills + docs to speed their delivery - if they're open to it.</p>
+          <h4>Front-end can outpace the back-end now</h4>
+          <p>Dharma's note from the room: with agentic dev, a front-end built fast with Claude can now move <em>faster</em> than the back-end it depends on. When an API lags, it is usually a sign the same tools aren't being leveraged on that side yet.</p>
+          <p><b>The takeaway:</b> bring the API side onto the same agentic workflow - skills, docs, and loops - so the two keep pace.</p>
         </div>
         <div class="art">
           <div class="eyebrow">Knowledge // Yash &amp; Dharma</div>

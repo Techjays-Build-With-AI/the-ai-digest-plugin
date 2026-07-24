@@ -47,11 +47,28 @@ Then restart Claude Code if prompted. `/dispatch` is now available anywhere.
 2. **Find** — locates the latest "Techjays - Weekly Leads Sync" event (or the date you pass).
 3. **Read** — opens the transcript doc attached to that event via Google Drive.
 4. **Number** — scans existing `techjays-ai-dispatch-issue-*.html` and takes the next number.
-5. **Assemble** — maps the transcript into the fixed department structure using the frozen design.
-6. **Emit** — writes `techjays-ai-dispatch-issue-NN.html` and opens it in your browser.
+5. **Assemble** — maps the transcript into the fixed department structure using the frozen design, applying the publication-safety rules below.
+6. **Safety review** — re-checks the draft for customer names, PII, internal vendor relationships, internal gaps, and unverified third-party claims; web-verifies claims, fixes issues, or asks you. This is a gate: the issue is not done until it passes.
+7. **Emit** — writes `techjays-ai-dispatch-issue-NN.html` and opens it in your browser.
 
 If it can't get a real transcript, it stops and tells you — it never invents meeting content.
 You can also feed a transcript directly: `/dispatch ./some-transcript.md`.
+
+---
+
+## Publication safety (built in)
+
+Every issue is generated to be shareable beyond the room, and `/dispatch` runs a safety review before it finishes:
+
+- **Employee and speaker names are kept** and quotes attributed to them.
+- **Customer names are never printed** — customers appear as "a customer" or by nature ("a coaching customer"). If the transcript doesn't say what a customer is, the command asks you rather than guessing.
+- **Customer problems are kept, but PII and company-identifying details are stripped** (no partner names, no fingerprinting headcounts).
+- **Internal vendor relationships are removed** (partnerships, credits, subscriptions, discount terms).
+- **Our internal evaluations and experiments are kept** — showing what we're trying is the point.
+- **Third-party claims are web-verified** (and cited) before they stay; if a claim can't be verified you're asked for a source, otherwise it's dropped.
+- **Internal gaps and insecure workarounds are left out; tool capabilities are kept.**
+
+The rules and the pre-ship checklist live in `assets/style-contract.md` (rules 8-14 and the §6 gate).
 
 ---
 

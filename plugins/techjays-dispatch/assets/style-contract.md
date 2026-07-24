@@ -34,6 +34,16 @@ no matter who ran the command or which model generated it.
    teal-300 `#7FE0E3`, teal-ink `#0A6E72`, coral `#F26B5B`, slate `#6B7280`/`#374151`, white `#FFFFFF`,
    paper `#F7F9FC`. SVG fonts: `'Bricolage Grotesque'` (bold labels), `'IBM Plex Mono'` (mono), `'Inter'` (body).
 
+### Publication safety (these are golden rules too - the digest is meant to be shareable beyond the room)
+
+8. **Employee and speaker names are fine.** Keep full names of Techjays people and meeting speakers, and attribute quotes to them.
+9. **Never name a customer.** Strip every customer / client / project / product / codename. Refer to a customer as `a customer`, `one of our customers`, or - preferred - by the **nature the transcript gives** (`a coaching customer`, `a retail customer`, `a logistics client`). If a customer is referenced but the transcript does not reveal its nature, **STOP and ask the user** what to call it. Never guess a name or an industry.
+10. **Customer problems are fine; identifiers are not.** Keep the problem and the lesson, but remove all PII (names / emails / handles of people at the customer) and company-identifying info (their name, their partners or vendors, headcounts or org details that fingerprint them).
+11. **No internal vendor relationships.** Remove partnership status, contract / subscription / credit / discount terms, and anything about who we pay or who pays us. Public product facts are fine; the relationship is not.
+12. **Keep internal evaluations and experiments.** Our own model / tool benchmarks, cost comparisons, and "what we tried this week" are the point of the digest - keep them, as long as they carry no personal information.
+13. **Verify third-party claims.** Any factual claim about an outside company or product (`X shipped Y`, `vendor raised limits`, `rolled out in the US`) must be verified with web research before it stays. If it checks out, keep it and cite the source (inline or in a `.quiet` note). If it cannot be verified, ask the user for a source; if none is given, drop the claim. Never publish an unverified third-party claim as fact.
+14. **Avoid internal gaps; keep tool capabilities.** Do not publish our own weaknesses, delivery slippage, roadmap, or insecure workarounds. Reframe such a story as the capability or the lesson (e.g. "drive a web tool with Chrome MCP") without exposing the gap or the workaround.
+
 ---
 
 ## 2. Filling the cover + chrome placeholders
@@ -231,8 +241,9 @@ Diagrams are optional. Include one for the Cover Story and at most one or two mo
 
 ---
 
-## 6. Self-check before writing the file
+## 6. Self-check before the issue is done (this is a gate, not a suggestion)
 
+**Design**
 - [ ] Zero `—` (em-dash) anywhere, including HTML comments.
 - [ ] No "Claude vs Sonnet"-style family/model confusion; exact model names used.
 - [ ] `{{ISSUE_NO}}` identical in all three spots; contents numbers match `.dept-no` and `#id`s.
@@ -240,3 +251,12 @@ Diagrams are optional. Include one for the Cover Story and at most one or two mo
 - [ ] Cover line and editor's headline are different sentences.
 - [ ] Ends with an Action Board; starts with Model Watch.
 - [ ] Looks like `example-issue-01.html` at a glance (rhythm: mostly light, 1-2 spreads, 1-2 dark panels).
+
+**Publication safety (rules 8-14)**
+- [ ] No customer / client / project / product / codename anywhere. Customers appear only as `a customer` or by nature. (If any customer's nature was unknown, the user was asked - not guessed.)
+- [ ] No PII and no company-identifying info in any customer story (no partner names, no headcounts that fingerprint them).
+- [ ] No internal vendor-relationship details (partnerships, credits, subscriptions, discounts).
+- [ ] Every third-party factual claim was web-verified and cited, or attributed to a user-supplied source, or dropped. None left asserted-but-unverified.
+- [ ] No internal gaps / weaknesses / roadmap / insecure workarounds. Tool capabilities kept.
+- [ ] Internal evaluations and experiments are present (that is the point) and carry no personal information.
+- [ ] Employee/speaker names kept and correctly attributed.
